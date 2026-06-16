@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Accessor - Secure Download</title>
+<style>
+  :root {
+    --bg-main: #060606;
+    --bg-panel: #111111;
+    --accent-red: #ff2d2d;
+    --accent-orange: #ff9500;
+    --text-light: #eeeeee;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background: radial-gradient(circle at center, #1a0303 0%, var(--bg-main) 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1s ease-out;
+    padding: 20px;
+    width: 100%;
+  }
+
+  /* Premium Card Styling */
+  .download-card {
+    background: var(--bg-panel);
+    border: 2px solid var(--accent-red);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255, 45, 45, 0.2);
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.4s ease;
+  }
+
+  /* Rotating subtle glow behind the card content */
+  .download-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(transparent, rgba(255, 45, 45, 0.15), transparent 30%);
+    animation: rotate 6s linear infinite;
+    z-index: 0;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .download-card:hover {
+    box-shadow: 0 0 60px rgba(255, 45, 45, 0.4);
+  }
+
+  /* Logo Animations */
+  .logo-img {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 15px rgba(255, 45, 45, 0.6));
+    animation: float 3s ease-in-out infinite;
+    object-fit: contain;
+  }
+
+  h1 {
+    font-size: 32px;
+    letter-spacing: 6px;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 0 0 15px rgba(255, 45, 45, 0.8);
+    text-transform: uppercase;
+    font-weight: 900;
+  }
+
+  p {
+    color: #888;
+    font-size: 15px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+
+  /* High-End Button Design */
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 16px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--accent-red), #ff7300);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(255, 70, 0, 0.5);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 12px 35px rgba(255, 70, 0, 0.8);
+  }
+
+  .download-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 15px rgba(255, 70, 0, 0.6);
+  }
+
+  /* Animated Download SVG */
+  .download-btn svg {
+    width: 22px;
+    height: 22px;
+    fill: white;
+    animation: bounceDown 2s infinite;
+  }
+
+  /* Keyframe Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  @keyframes rotate {
+    100% { transform: rotate(1turn); }
+  }
+
+  @keyframes bounceDown {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(5px); }
+    60% { transform: translateY(3px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="download-card">
+    <div class="card-content">
+      <!-- Your Logo -->
+      <img src="logo.png" alt="Accessor Logo" class="logo-img" onerror="this.style.display='none'">
+      
+      <h1>ACCESSOR</h1>
+      <p>Secure Peer-to-Peer Transmission<br>Your requested application package is ready.</p>
+      
+      <!-- The Download Button -->
+      <a href="https://drive.google.com/file/d/1M0_zvLiuE0qMKUyS6HVL0QF3IB7oLrLw/view" class="download-btn" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24">
+          <path d="M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z"/>
+        </svg>
+        Download App
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
